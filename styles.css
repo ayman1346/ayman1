@@ -111,7 +111,6 @@ nav ul li {
     background: transparent;
     border-radius: 50%;
     padding: 0.5rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 45px;
     height: 45px;
     display: flex;
@@ -120,6 +119,7 @@ nav ul li {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    will-change: transform, opacity;
 }
 
 nav ul li::before {
@@ -131,9 +131,9 @@ nav ul li::before {
     height: 100%;
     background: var(--gradient);
     opacity: 0;
-    transition: opacity 0.3s ease;
     border-radius: 50%;
     z-index: 0;
+    will-change: opacity;
 }
 
 nav ul li a {
@@ -146,7 +146,6 @@ nav ul li a {
     justify-content: center;
     width: 100%;
     height: 100%;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0;
     position: relative;
     z-index: 1;
@@ -158,91 +157,76 @@ nav ul li a {
 
 nav ul li:hover {
     transform: translateX(8px) scale(1.05);
+    transition: transform 0.2s linear;
 }
 
 nav ul li:hover::before {
     opacity: 0.15;
+    transition: opacity 0.1s linear;
 }
 
 nav ul li:hover a {
     color: var(--primary-color);
     transform: translateX(-2px);
+    transition: color 0.2s linear, transform 0.2s linear;
 }
 
 @media (max-width: 768px) {
     nav {
         right: 0.5rem;
-        width: 80px;
-        padding: 1rem;
-    }
-
-    nav ul {
-        gap: 1rem;
-    }
-
-    nav ul li {
-        width: 40px;
-        height: 40px;
-        padding: 0.3rem;
-    }
-    
-    nav ul li a {
-        font-size: 0.8rem;
-        padding: 0.2rem;
-        text-align: center;
-    }
-    
-    nav ul li:hover {
-        transform: translateX(6px) scale(1.05);
-    }
-
-    .logo {
-        font-size: 1.3rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
-
-    .profile-img {
-        width: 50px;
-        height: 50px;
-        border-width: 2px;
-        margin-bottom: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
         width: 70px;
-        padding: 0.8rem;
-    }
-
-    nav ul {
-        gap: 0.8rem;
     }
 
     nav ul li {
         width: 35px;
         height: 35px;
-        padding: 0.2rem;
     }
-
+    
     nav ul li a {
         font-size: 0.7rem;
-        padding: 0.15rem;
-        text-align: center;
+        padding: 0.2rem;
+    }
+    
+    nav ul li:hover {
+        transform: translateX(6px) scale(1.03);
     }
 
     .logo {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         margin-bottom: 1rem;
-        text-align: center;
     }
 
     .profile-img {
         width: 45px;
         height: 45px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        width: 60px;
+    }
+
+    nav ul li {
+        width: 30px;
+        height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 0.6rem;
+        padding: 0.1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .profile-img {
+        width: 40px;
+        height: 40px;
         border-width: 1.5px;
-        margin-bottom: 0.6rem;
     }
 }
 

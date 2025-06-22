@@ -283,6 +283,19 @@ nav ul li a:hover {
     padding: 2rem;
 }
 
+.hero .brand-logo {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.hero .brand-logo:hover {
+    transform: scale(1.1);
+}
+
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 1.5rem;
@@ -1361,6 +1374,8 @@ footer {
 @media (max-width: 768px) {
     nav {
         padding: 0.5rem 1rem;
+        left: 0;
+        right: auto;
     }
 
     .nav-left {

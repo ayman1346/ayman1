@@ -288,8 +288,9 @@ nav ul li a:hover {
     height: 350px;
     border-radius: 50%;
     border: 5px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
     transition: transform 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .hero .brand-logo:hover {
@@ -1374,8 +1375,6 @@ footer {
 @media (max-width: 768px) {
     nav {
         padding: 0.5rem 1rem;
-        left: 0;
-        right: auto;
     }
 
     .nav-left {
